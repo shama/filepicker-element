@@ -23,5 +23,8 @@
     "csjs-injectify": "^1.0.0",
     "standard": "^6.0.8",
     "wzrd": "^1.3.1"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
