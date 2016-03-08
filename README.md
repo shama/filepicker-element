@@ -2,6 +2,8 @@
 
 An button for opening the file picker dialog and returning the files picked.
 
+![example](https://raw.githubusercontent.com/shama/filepicker-element/master/example/example.gif)
+
 ## Usage
 
 ```js
