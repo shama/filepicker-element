@@ -1,0 +1,26 @@
+{
+  "name": "filepicker-element",
+  "version": "1.0.0",
+  "description": "A file picker element.",
+  "main": "index.js",
+  "scripts": {
+    "start": "wzrd example/index.js:bundle.js -- -t csjs-injectify",
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shama/filepicker-element"
+  },
+  "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
+  "license": "MIT",
+  "dependencies": {
+    "bel": "^3.0.0",
+    "csjs": "^1.0.0",
+    "object-assign": "^4.0.1"
+  },
+  "devDependencies": {
+    "csjs-injectify": "^1.0.0",
+    "standard": "^6.0.8",
+    "wzrd": "^1.3.1"
+  }
+}
