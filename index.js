@@ -3,21 +3,36 @@ var csjs = require('csjs')
 var objectAssign = require('object-assign')
 
 module.exports = function (opts, onpicked) {
+  onpicked = onpicked || function () {}
+  var input = bel`<input type="file" accept=${opts.accept} style=${{display: 'none'}} onchange=${function (e) {
+    onpicked(e.target.files)
+  }} />`
+
+  // If supplied a custom element as the button
+  if (opts && opts.nodeName && opts.nodeType) {
+    opts.onclick = function (e) {
+      e.preventDefault()
+      input.click()
+    }
+    return render(opts)
+  }
+
   if (typeof opts === 'string') opts = {label: opts}
   opts = objectAssign({
     label: 'Pick File',
     accept: null
   }, opts)
-  onpicked = onpicked || function () {}
-  var input = bel`<input type="file" accept=${opts.accept} style=${{display: 'none'}} onchange=${function (e) {
-    onpicked(e.target.files)
-  }} />`
-  return bel`<div class=${styles.index}>
-    <button onclick=${function () {
-      input.click()
-    }}>${opts.label}</button>
-    ${input}
-  </div>`
+
+  return render(bel`<button onclick=${function () {
+    input.click()
+  }}>${opts.label}</button>`)
+
+  function render (inner) {
+    return bel`<div class=${styles.index}>
+      ${inner}
+      ${input}
+    </div>`
+  }
 }
 
 var styles = module.exports.styles = csjs`
