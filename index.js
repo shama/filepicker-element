@@ -12,7 +12,7 @@ module.exports = function (opts, onpicked) {
   var input = bel`<input type="file" accept=${opts.accept} style=${{display: 'none'}} onchange=${function (e) {
     onpicked(e.target.files)
   }} />`
-  return bel`<div class=${styles.pickfile}>
+  return bel`<div class=${styles.index}>
     <button onclick=${function () {
       input.click()
     }}>${opts.label}</button>
@@ -21,7 +21,7 @@ module.exports = function (opts, onpicked) {
 }
 
 var styles = module.exports.styles = csjs`
-.pickfile button {
+.index button {
   border: none;
   font-size: 1rem;
   padding: .5rem 1rem;
@@ -30,10 +30,10 @@ var styles = module.exports.styles = csjs`
   background-color: #2ecc71;
   border-radius: 10px;
 }
-.pickfile button:hover {
+.index button:hover {
   background-color: #27ae60;
 }
-.pickfile button:focus {
+.index button:focus {
   outline: none;
 }
 `
